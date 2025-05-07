@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'first_app/base.html' %}
+{%load static%}
+
+
+{% block title %}
+            ACCESS HISTORY RECORDS 
+{% endblock %}
+
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/css_sample.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <p>ACCESS RECORD</p>
+
+    <div class="flex-container">
+
+        <a href="{% url 'users_list' %}" class="button-style">Go to Users List</a>
+
+    </div>
+
+    <table>
+        <th>Web</th>
+        <th>Date</th>
+    {% if test_value %}
+        {% for val in test_value %}
+
+            <tr>
+                <td>
+                    {{val.name}}
+                </td>
+                <td>
+                    {{val.date}}
+                </td>
+
+            </tr>
+        {% endfor %}
+    {% else %}
+        <p> NO DATA DETECTED! </p>
+
+    {% endif %}
+
+    </table>
+
+
+{% endblock %}
+
+
+
+
