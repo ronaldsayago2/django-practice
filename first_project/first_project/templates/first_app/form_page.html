@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'first_app/base.html' %}
+{%load static%}
+
+
+{% block title %}
+FORM PAGE
+{% endblock %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{%static 'css/form_page.css'%}">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+
+
+
+
+{%block content%}
+    {%if not registered%}
+
+    <div class="form-container">
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        
+        <div class="form-header">
+            <h1 class="form-title">Contact Us</h1>
+            <p class="form-subtitle">We'd love to hear from you</p>
+        </div>
+        
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <input type="submit" class="submit-button" value="Register">
+        </form>
+    </div>
+    {%else%}
+    <div class="form-container">
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        
+        <div class="form-header">
+            <h1 class="form-title">Already Registered</h1>
+        </div>
+                  
+    </div>    
+    {%endif%}
+
+{%endblock%}

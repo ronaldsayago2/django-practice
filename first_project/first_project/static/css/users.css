@@ -1,0 +1,269 @@
+/* users.css - Artistic User Directory (Scoped Version) */
+
+/* Import fancy Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+/* Content area specific styling */
+.content-area {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0; /* Removed top/bottom padding */
+    margin: 0; /* Added this to ensure no margins */
+}
+
+
+/* Page title styling */  
+.content-area h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    text-align: center;
+    position: relative;
+    letter-spacing: 2px;
+    width: 100%;
+    margin-top: 30px; /* Added top margin */
+}
+
+.content-area h1::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Table container with card-like styling */
+.content-area table {
+    width: 95%; /* Increased from 90% */
+    max-width: 1200px; /* Increased from 1000px */
+    margin: 20px auto; /* Added top/bottom margin */
+    border-collapse: separate;
+    border-spacing: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    transform: translateZ(0);
+    backdrop-filter: blur(4px);
+}
+
+/* Table header */
+.content-area th {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 18px;
+    text-align: left;
+    position: relative;
+}
+
+.content-area th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.content-area th:last-child {
+    border-top-right-radius: 10px;
+}
+
+/* Email column gets special width */
+.content-area th:nth-child(3), 
+.content-area td:nth-child(3) {
+    width: 40%;
+}
+
+/* Table rows */
+.content-area tr {
+    transition: all 0.3s ease;
+}
+
+.content-area tr:nth-child(even) {
+    background-color: rgba(236, 240, 241, 0.5);
+}
+
+.content-area tr:hover {
+    background-color: rgba(106, 17, 203, 0.05);
+    transform: scale(1.005);
+}
+
+/* Table cells */
+.content-area td {
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(189, 195, 199, 0.2);
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* First name styling */
+.content-area td:first-child {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Last name styling */
+.content-area td:nth-child(2) {
+    color: #34495e;
+}
+
+/* Email styling */
+.content-area td:nth-child(3) {
+    color: #3498db;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* Last row bottom border radius */
+.content-area tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.content-area tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.content-area tr:last-child td {
+    border-bottom: none;
+}
+
+/* No users message */
+.content-area table + h1 {
+    margin-top: 30px;
+    color: #e74c3c;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Subtle animation for the table */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-area table {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Row entrance animation - each row appears with slight delay */
+.content-area tr {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.content-area tr:nth-child(1) { animation-delay: 0.1s; }
+.content-area tr:nth-child(2) { animation-delay: 0.2s; }
+.content-area tr:nth-child(3) { animation-delay: 0.3s; }
+.content-area tr:nth-child(4) { animation-delay: 0.4s; }
+.content-area tr:nth-child(5) { animation-delay: 0.5s; }
+.content-area tr:nth-child(6) { animation-delay: 0.6s; }
+.content-area tr:nth-child(7) { animation-delay: 0.7s; }
+.content-area tr:nth-child(8) { animation-delay: 0.8s; }
+/* Additional rows would continue pattern */
+
+/* REDIRECT button styling */
+.flex-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.button-style {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-style:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content-area h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .content-area table {
+        width: 100%;
+    }
+    
+    .content-area th, 
+    .content-area td {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+    }
+    
+    .content-area th {
+        font-size: 0.8rem;
+    }
+}
+
+/* For very small screens, adjust the layout */
+@media (max-width: 480px) {
+    .content-area th, 
+    .content-area td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .content-area h1 {
+        font-size: 1.6rem;
+    }
+    
+    .content-area th:nth-child(3), 
+    .content-area td:nth-child(3) {
+        width: auto;
+    }
+}
+
+
+/* Add this to ensure the navbar has proper styling */
+.navbar {
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem; /* Increased horizontal padding */
+}
+
+
+/* Ensure page wrapper takes full width */
+.page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Ensure container takes full width */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0; /* Remove padding */
+}
